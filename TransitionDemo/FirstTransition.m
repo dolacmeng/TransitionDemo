@@ -46,7 +46,7 @@
         cell.leftImageView.hidden = NO;
         [cellImageSnapshot removeFromSuperview];
         
-        [transitionContext completeTransition:YES];
+        [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];
 }
 

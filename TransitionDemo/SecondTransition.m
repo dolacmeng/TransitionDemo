@@ -41,13 +41,11 @@
     [UIView animateWithDuration:duration animations:^{
         fromViewController.view.alpha = 0.0;
         imageSnapshot.frame = [containerView convertRect:cell.leftImageView.frame fromView:cell.leftImageView.superview];
-        NSLog(@"title:%@",cell.rightTitleLabel.text);
-        NSLog(@"frame:%@",NSStringFromCGRect(imageSnapshot.frame));
     } completion:^(BOOL finished) {
         [imageSnapshot removeFromSuperview];
-        fromViewController.imageView.hidden = YES;
+        fromViewController.imageView.hidden = NO;
         cell.leftImageView.hidden = NO;
-        [transitionContext completeTransition:YES];
+        [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];
     
 }
